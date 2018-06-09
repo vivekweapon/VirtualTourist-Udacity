@@ -11,6 +11,22 @@ import Foundation
 import CoreData
 
 
-public class Photo: NSManagedObject {
+public class Photo: NSManagedObject
+{
 
+    convenience init(imageurl:String,pin:Pin,image:NSData,context:NSManagedObjectContext)
+    {
+        if let ent = NSEntityDescription.entity(forEntityName: "Photo", in: context)
+        {
+            self.init(entity: ent, insertInto: context)
+            
+            self.imageURL = imageurl
+            self.pin = pin
+            self.image = image
+        }
+        else
+        {
+            fatalError("Unable to find Entity name!")
+        }
+    }
 }

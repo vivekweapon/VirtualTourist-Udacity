@@ -15,7 +15,6 @@ import MapKit
 public class Pin: NSManagedObject,MKAnnotation
 {
     
-    var isDownloading = false
 
     convenience init(coordinate: CLLocationCoordinate2D, context: NSManagedObjectContext)
     {
@@ -34,16 +33,17 @@ public class Pin: NSManagedObject,MKAnnotation
         }
     }
     
-    public var coordinate: CLLocationCoordinate2D {
-        get {
+    public var coordinate: CLLocationCoordinate2D
+    {
+        
+        get
+        {
             return CLLocationCoordinate2DMake(latitude, longitude)
         }
-        set {
+        set
+        {
             self.latitude = newValue.latitude
             self.longitude = newValue.longitude
         }
     }
-    
-    
-
 }

@@ -13,7 +13,7 @@ import CoreData
 struct CoreDataStack {
     
     // MARK: Properties
-    
+
     private let model: NSManagedObjectModel
     internal let coordinator: NSPersistentStoreCoordinator
     private let modelURL: URL
@@ -21,6 +21,7 @@ struct CoreDataStack {
     internal let persistingContext: NSManagedObjectContext
     internal let backgroundContext: NSManagedObjectContext
     let context: NSManagedObjectContext
+
     
     // MARK: Initializers
     
@@ -164,6 +165,16 @@ extension CoreDataStack {
             DispatchQueue.main.asyncAfter(deadline: time) {
                 self.autoSave(delayInSeconds)
             }
+        }
+    }
+}
+
+extension CoreDataStack {
+    
+    func applicationDocumentsDirectory() {
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "yo.BlogReaderApp" in the application's documents directory.
+        if let url = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).last {
+            print(url.absoluteString)
         }
     }
 }

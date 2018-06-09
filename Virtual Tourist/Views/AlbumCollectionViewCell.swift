@@ -18,14 +18,13 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib()
     {
         super.awakeFromNib()
-        // Initialization code
+       
         if(photoImageView.image == nil)
         {
             activityIndicator.startAnimating()
             activityIndicator.isHidden = false
             photoImageView.image = UIImage(named:"placeholder")
         }
-        
     }
 
 }

@@ -51,7 +51,5 @@ struct Constants
         static let UseSafeSearch = "1"
         
     }
-    
-    
-    
+
 }
